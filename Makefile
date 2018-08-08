@@ -31,6 +31,7 @@ install:
 	$(MAKE) -C src/ install
 	mkdir -p $(CONFIG_OUTPUT_PATH)
 	cp $(LOCAL_CONFIG_PATH)/cpp.conf $(CONFIG_OUTPUT_PATH)
+	chmod 666 $(CONFIG_OUTPUT_PATH)/cpp.conf
 	touch $(CONFIG_OUTPUT_PATH)/cpp.log
 	chmod 666 $(CONFIG_OUTPUT_PATH)/cpp.log
 	mkdir -p $(DOC_OUTPUT_PATH)
@@ -39,6 +40,7 @@ install:
 uninstall:
 	$(MAKE) -C src/ uninstall
 	$(RM) $(CONFIG_OUTPUT_PATH)/cpp.conf
+	$(RM) $(CONFIG_OUTPUT_PATH)/cpp.log
 	$(RM) -r $(DOC_OUTPUT_PATH)/*
 
 test:
