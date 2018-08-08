@@ -4,13 +4,13 @@
 #
 
 # Output config path
-CONFIG_OUTPUT_PATH = ~/.config/example_cpp_app/
+CONFIG_OUTPUT_PATH = ~/.config/example_cpp_app
 
 # Local config path
 LOCAL_CONFIG_PATH = ./config
 
 # Output document path
-DOC_OUTPUT_PATH = /usr/local/share/doc/example_cpp_app/
+DOC_OUTPUT_PATH = /usr/local/share/doc/example_cpp_app
 
 # Local document path
 LOCAL_DOC_PATH = ./build/docs

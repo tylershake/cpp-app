@@ -22,7 +22,7 @@ LDFLAGS = -lcpputils -lboost_log -lpthread -lboost_thread -lboost_system -lboost
 EXE_OUTPUT_PATH = ../build/bin
 
 # Output executable name
-EXAMPLE_EXE_NAME = cpp_example_app
+EXAMPLE_EXE_NAME = example_cpp_app
 
 # Install path
 BIN_INSTALL_PATH = /usr/local/bin
