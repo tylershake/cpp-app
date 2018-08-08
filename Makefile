@@ -4,13 +4,13 @@
 #
 
 # Output config path
-CONFIG_OUTPUT_PATH = /usr/local/etc/cpp
+CONFIG_OUTPUT_PATH = ~/.config/example_cpp_app/
 
 # Local config path
 LOCAL_CONFIG_PATH = ./config
 
 # Output document path
-DOC_OUTPUT_PATH = /usr/local/share/doc/cpp
+DOC_OUTPUT_PATH = /usr/local/share/doc/example_cpp_app/
 
 # Local document path
 LOCAL_DOC_PATH = ./build/docs
@@ -30,17 +30,15 @@ clean:
 install:
 	$(MAKE) -C src/ install
 	mkdir -p $(CONFIG_OUTPUT_PATH)
-	cp $(LOCAL_CONFIG_PATH)/cpp.conf $(CONFIG_OUTPUT_PATH)
-	chmod 666 $(CONFIG_OUTPUT_PATH)/cpp.conf
-	touch $(CONFIG_OUTPUT_PATH)/cpp.log
-	chmod 666 $(CONFIG_OUTPUT_PATH)/cpp.log
+	cp $(LOCAL_CONFIG_PATH)/cpp_app.conf $(CONFIG_OUTPUT_PATH)
+	chmod 666 $(CONFIG_OUTPUT_PATH)/cpp_app.conf
 	mkdir -p $(DOC_OUTPUT_PATH)
 	cp -r $(LOCAL_DOC_PATH)/* $(DOC_OUTPUT_PATH)
 
 uninstall:
 	$(MAKE) -C src/ uninstall
-	$(RM) $(CONFIG_OUTPUT_PATH)/cpp.conf
-	$(RM) $(CONFIG_OUTPUT_PATH)/cpp.log
+	$(RM) $(CONFIG_OUTPUT_PATH)/cpp_app.conf
+	$(RM) $(CONFIG_OUTPUT_PATH)/cpp_app.log
 	$(RM) -r $(DOC_OUTPUT_PATH)/*
 
 test:

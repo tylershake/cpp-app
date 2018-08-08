@@ -4,17 +4,15 @@
 #
 
 cmake_minimum_required (VERSION 3.0)
-project (cpp VERSION 1.0.0.0 LANGUAGES CXX)
+project (example_cpp_app VERSION 1.0.0.0 LANGUAGES CXX)
 
 # Configure CMAKE
 set (CONFIG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/config)
-set (CONFIG_FILE ${CMAKE_INSTALL_PREFIX}/etc/${PROJECT_NAME}/cpp.conf)
-set (LOG_FILE ${CMAKE_INSTALL_PREFIX}/etc/${PROJECT_NAME}/cpp.log)
+set (CONFIG_FILE ~/.config/${PROJECT_NAME}/cpp_app.conf)
+set (LOG_FILE ~/.cache/${PROJECT_NAME}/log/cpp_app.log)
 configure_file ("${CONFIG_DIR}/config.hpp.in" "${PROJECT_BINARY_DIR}/config.hpp")
 include_directories("${PROJECT_BINARY_DIR}")
-install (FILES ${CONFIG_DIR}/cpp.conf DESTINATION etc/${PROJECT_NAME} PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ GROUP_WRITE WORLD_READ WORLD_WRITE)
-file (WRITE cpp.log "")
-install (FILES cpp.log DESTINATION etc/${PROJECT_NAME} PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ GROUP_WRITE WORLD_READ WORLD_WRITE)
+install (FILES ${CONFIG_DIR}/cpp_app.conf DESTINATION ~/.cache/${PROJECT_NAME}/)
 
 # Compile flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
