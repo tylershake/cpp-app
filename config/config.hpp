@@ -16,8 +16,8 @@
  * [other designations]
  */
 
-#ifndef CODE_TEMPLATES_CPP_CONFIG_CONFIG_HPP_
-#define CODE_TEMPLATES_CPP_CONFIG_CONFIG_HPP_
+#ifndef CONFIG_CONFIG_HPP_
+#define CONFIG_CONFIG_HPP_
 
 #define VERSION "1.0.0.0"
 #define PROJECT_NAME "cpp"
@@ -26,4 +26,4 @@
 #define LOCAL_LOG_FILE "./cpp.log"
 #define LOCAL_CONFIG_FILE "./cpp.conf"
 
-#endif  // CODE_TEMPLATES_CPP_CONFIG_CONFIG_HPP_
+#endif  // CONFIG_CONFIG_HPP_

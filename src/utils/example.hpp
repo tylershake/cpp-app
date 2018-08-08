@@ -16,8 +16,8 @@
  * [other designations]
  */
 
-#ifndef CODE_TEMPLATES_CPP_SRC_UTILS_EXAMPLE_HPP_
-#define CODE_TEMPLATES_CPP_SRC_UTILS_EXAMPLE_HPP_
+#ifndef SRC_UTILS_EXAMPLE_HPP_
+#define SRC_UTILS_EXAMPLE_HPP_
 
 /**
  * Namespace documentation.
@@ -75,4 +75,4 @@ class Example {
 
 }  // namespace example
 
-#endif  // CODE_TEMPLATES_CPP_SRC_UTILS_EXAMPLE_HPP_
+#endif  // SRC_UTILS_EXAMPLE_HPP_
