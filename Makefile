@@ -38,11 +38,9 @@ install:
 uninstall:
 	$(MAKE) -C src/ uninstall
 	$(RM) $(CONFIG_OUTPUT_PATH)/cpp_app.conf
-	$(RM) $(CONFIG_OUTPUT_PATH)/cpp_app.log
 	$(RM) -r $(DOC_OUTPUT_PATH)/*
 
 test:
-	./build/bin/test_log
 	./build/bin/test_example
 
 docs:

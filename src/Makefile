@@ -16,7 +16,7 @@ LIB_INCPATH = -L../build/lib
 CXXFLAGS = $(SYSTEM_CXXFLAGS) $(LOCAL_INCPATH) $(LIB_INCPATH)
 
 # Linking dependencies
-LDFLAGS = -lcpputils -lboost_log -lpthread -lboost_thread -lboost_system -lboost_log_setup -lboost_program_options
+LDFLAGS = -lcpputils -lboost_log -lpthread -lboost_thread -lboost_system -lboost_log_setup -lboost_program_options -lboost_filesystem
 
 # Output executable path
 EXE_OUTPUT_PATH = ../build/bin
@@ -35,13 +35,13 @@ cpputils:
 
 cpp-example-app: $(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME)
 
-$(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME): example_app.o
+$(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME): example_cpp_app.o
 	mkdir -p $(EXE_OUTPUT_PATH)
 	$(RM) $(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME)
-	$(CXX) $(CXXFLAGS) example_app.o -o $(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) example_cpp_app.o -o $(EXE_OUTPUT_PATH)/$(EXAMPLE_EXE_NAME) $(LDFLAGS)
 
-example_app.o: example_app.cpp
-	$(CXX) $(CXXFLAGS) -c example_app.cpp $(LDFLAGS)
+example_app.o: example_cpp_app.cpp
+	$(CXX) $(CXXFLAGS) -c example_cpp_app.cpp $(LDFLAGS)
 
 clean:
 	$(MAKE) -C utils/ clean

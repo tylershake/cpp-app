@@ -23,7 +23,7 @@ LIBRARY_NAME = libcpputils
 
 # Install path
 LIB_INSTALL_PATH = /usr/local/lib
-HEAD_INSTALL_PATH = /usr/local/include/cpp
+HEAD_INSTALL_PATH = /usr/local/include/cpp_example
 
 # Rules start here
 all: cpputils

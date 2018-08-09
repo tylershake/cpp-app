@@ -43,7 +43,7 @@ struct LogSettings {
 
 /**
  * Initializes logger.
- * @throws std::runtime_error       error interfacing with config file
+ * @throws std::runtime_error       error interfacing with config file or log file
  * @throws std::invalid_argument    invalid argument in config file
  * @throws boost::exception         missing argument in config file
  */

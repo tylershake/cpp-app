@@ -16,11 +16,13 @@
  */
 
 #include <fstream>
+#include <cstdlib>
 
 #include <boost/program_options.hpp>
 #include <boost/log/core.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/common_attributes.hpp>
+#include <boost/filesystem.hpp>
 
 #include "log.hpp"
 #include "exceptions.hpp"
@@ -31,6 +33,7 @@ namespace cpp_log {
 namespace logging = boost::log;
 namespace logging_keywords = boost::log::keywords;
 namespace program_options = boost::program_options;
+namespace filesystem = boost::filesystem;
 
 static logging_sources::severity_logger
     <logging_trivial::severity_level> glogger;
@@ -38,21 +41,21 @@ static bool initialize_called = false;
 
 void initialize(void) {
     if (!initialize_called) {
+        std::string config_file;
+        std::string config_dir;
         LogSettings log_settings;
         program_options::variables_map variables_map;
         program_options::options_description description("Log Options");
 
-        // check log file
-        log_settings.file = LOG_FILE;
-        std::ofstream log_file(LOG_FILE, std::ofstream::out);
-        if (!log_file) {
-            log_settings.file = LOCAL_LOG_FILE;
-            log_file.close();
-            log_file.clear();
-            log_file.open(LOCAL_LOG_FILE, std::ofstream::out);
-            if (!log_file) {
-                throw std::runtime_error("Unable to write to log file");
-            }
+        // set log and config file
+        if (const char* env_h = std::getenv("HOME")) {
+            std::string home_dir(env_h);
+            log_settings.file = home_dir + "/.cache/" + PROJECT_NAME +
+                "/log/cpp_app.log";
+            config_dir = home_dir + "/.config/" + PROJECT_NAME;
+            config_file = config_dir + "/cpp_app.conf";
+        } else {
+            throw std::runtime_error("Unable to find user home directory");
         }
 
         // setup options
@@ -63,15 +66,35 @@ void initialize(void) {
                 "Logger severity level setting");
 
         // load conf file
-        std::ifstream conf_file(CONFIG_FILE,
+        std::ifstream conf_file(config_file.c_str(),
             std::ifstream::in);
         if (!conf_file) {
+            // copy config file from package
+            // TODO(user): there probably is a smarter way to do this
             conf_file.close();
             conf_file.clear();
-            conf_file.open(LOCAL_CONFIG_FILE, std::ifstream::in);
+            std::string pkg_config("./config/cpp_app.conf");
+            conf_file.open(pkg_config.c_str(), std::ifstream::in);
             if (!conf_file) {
-                throw std::runtime_error("Missing configuration file");
+                conf_file.close();
+                conf_file.clear();
+                pkg_config = "../config/cpp_app.conf";
+                conf_file.open(pkg_config.c_str(), std::ifstream::in);
+                if (!conf_file) {
+                    conf_file.close();
+                    conf_file.clear();
+                    pkg_config = "../../config/cpp_app.conf";
+                    conf_file.open(pkg_config.c_str(), std::ifstream::in);
+                    if (!conf_file) {
+                        throw std::runtime_error("Missing configuration file");
+                    }
+                }
             }
+            filesystem::create_directories(config_dir);
+            filesystem::copy_file(pkg_config, config_file);
+            conf_file.close();
+            conf_file.clear();
+            conf_file.open(config_file.c_str(), std::ifstream::in);
         }
         program_options::store(
             program_options::parse_config_file(conf_file, description, true),

@@ -23,16 +23,20 @@
 
 #include <boost/program_options.hpp>
 #include <boost/exception/diagnostic_information.hpp>
+#include <boost/filesystem.hpp>
 
 #include "utils/example.hpp"
 #include "config.hpp"
 
 namespace program_options = boost::program_options;
+namespace filesystem = boost::filesystem;
 
 int main(int argc, char* argv[]) {
     std::string config_value;
+    std::string config_dir;
     std::string command_value_one;
     int command_value_two;
+    std::string config_file;
 
     program_options::options_description generic("Generic options");
     program_options::options_description command("Command line options");
@@ -76,8 +80,17 @@ int main(int argc, char* argv[]) {
         }
         program_options::notify(cmd_variables_map);
 
+        // set config file
+        if (const char* env_h = std::getenv("HOME")) {
+            std::string home_dir(env_h);
+            config_dir = home_dir + "/.config/" + PROJECT_NAME;
+            config_file = config_dir + "/cpp_app.conf";
+        } else {
+            throw std::runtime_error("Unable to find user home directory");
+        }
+
         // load conf file
-        std::ifstream conf_file(CONFIG_FILE, std::ifstream::in);
+        std::ifstream conf_file(config_file.c_str(), std::ifstream::in);
         if (!conf_file) {
             throw std::runtime_error("Missing configuration file");
         }
