@@ -25,7 +25,7 @@ cpp:
 clean:
 	$(MAKE) -C src/ clean
 	$(MAKE) -C tests/ clean
-	$(RM) -r ./build/doc/*
+	$(RM) -r $(LOCAL_DOC_PATH)/*
 
 install:
 	$(MAKE) -C src/ install
@@ -44,4 +44,5 @@ test:
 	./build/bin/test_example
 
 docs:
+	mkdir -p $(LOCAL_DOC_PATH)
 	/usr/bin/doxygen Doxyfile
