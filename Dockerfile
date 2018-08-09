@@ -7,7 +7,7 @@ RUN useradd -m tempuser
 
 WORKDIR /home/tempuser
 
-RUN git clone https://github.com/google/googletest.git
+RUN git clone -b 'release-1.8.0' --single-branch --depth 1 https://github.com/google/googletest.git
 
 RUN cd googletest && mkdir build && cd build && cmake .. && make && make install
 
