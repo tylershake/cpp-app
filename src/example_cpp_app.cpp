@@ -1,6 +1,6 @@
 /** Copyright [year] [organization]
  *
- * @file example_app.cpp
+ * @file example_cpp_app.cpp
  *
  * @brief An example app.
  * A more elaborate description of example app. (optional)
