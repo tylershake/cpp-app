@@ -32,6 +32,10 @@ namespace cpp_exceptions {
  * A more elaborate description of example exception.
  */
 struct ExampleException : public std::exception {
+	/**
+	 * Exception member function
+	 * @return	exception statement
+	 */
     const char* what() const throw() {
         return "Example exception";
     }
