@@ -30,7 +30,7 @@ These are the base requirements to build and use this example application:
 * GNU Make (optional)
 * Doxygen (optional)
 
-## Build Instructions
+## Software Build Instructions
 
 The software and documentation can be built using two utilities: CMake and GNU Make. Please see their respective sections below.
 
@@ -59,3 +59,38 @@ make test
 sudo make install
 sudo ldconfig
 ```
+
+## Docker Build Instructions
+
+The software and documentation can also be built inside a docker container. The currently dockerfile is derived from an nginx container to host the doxygen autodocumentation. To build the container, follow the instructions below.
+
+To build the container from scract, navigate to the project root and execute the following command:
+
+```
+docker build --no-cache=true -t "cpp-app:1.0.0.0" .
+```
+
+To run the container, execute the following command:
+
+```
+docker run -p 80:80 cpp-app:1.0.0.0
+```
+
+The preferred method of running the container is via docker-compose. Include the following in your docker-compose file to connect this container with your other infrastructure.
+
+```
+TODO
+```
+
+## Templates Notes
+
+When utilizing the template, there are a few things to keep in mind as you develop your application or library.
+
+### Version Strings
+
+Version strings are hidden throughout the project. When tagging your project at various version, be sure to update the version strings in the following places to match.
+
+* CMakeLists.txt in project root (if using CMake)
+* Doxyfile in project root (if using GNU Make)
+* config.hpp in config directory (if using GNU Make)
+* Docker container tag (if building a docker container)
