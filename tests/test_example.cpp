@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file test_example.cpp
- *
- * @brief Implementation of unit test fixture for example utility.
+/** @file
+ * Implementation of unit test fixture for example utility.
  * A more elaborate description of unit test fixture. (optional)
  *
  * @author [organization]
@@ -14,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * @Copyright [year] [organization]
  */
 
 #include <gtest/gtest.h>

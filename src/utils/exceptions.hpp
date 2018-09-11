@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file exceptions.hpp
- *
- * @brief An example exception.
+/** @file
+ * An example exception.
  * A more elaborate description of exceptions. (optional)
  *
  * @author [organization]
@@ -14,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * @Copyright [year] [organization]
  */
 
 #ifndef SRC_UTILS_EXCEPTIONS_HPP_

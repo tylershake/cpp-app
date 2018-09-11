@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file example_cpp_app.cpp
- *
- * @brief An example app.
+/** @file
+ * An example app.
  * A more elaborate description of example app. (optional)
  *
  * @author [organization]
@@ -14,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * @Copyright [year] [organization]
  */
 
 #include <cstdlib>

@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file log.hpp
- *
- * @brief Includes useful logging functions.
+/** @file
+ * Includes useful logging functions.
  * A more elaborate description of logging. (optional)
  *
  * @author [organization]
@@ -14,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * @Copyright [year] [organization]
  */
 
 #ifndef SRC_UTILS_LOG_HPP_

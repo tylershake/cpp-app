@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file example.hpp
- *
- * @brief An example utility.
+/** @file
+ * An example utility.
  * A more elaborate description of example utility. (optional)
  *
  * @author [organization]
@@ -14,13 +11,15 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * @Copyright [year] [organization]
  */
 
 #ifndef SRC_UTILS_EXAMPLE_HPP_
 #define SRC_UTILS_EXAMPLE_HPP_
 
 /**
- * Namespace documentation.
+ * Includes the example utility.
  */
 namespace example {
 
