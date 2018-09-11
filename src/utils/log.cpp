@@ -1,8 +1,6 @@
-/** Copyright [year] [organization]
- *
- * @file log.cpp
- *
- * @brief Implementation of useful logging functions.
+/** @file
+ * Implementation of useful logging functions.
+ * A more elaborate description of implementation. (optional)
  *
  * @author [organization]
  * @author [name] (optional)
@@ -13,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * Copyright [year] [organization]
  */
 
 #include <fstream>

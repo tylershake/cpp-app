@@ -12,7 +12,7 @@
  * [distribution designation]
  * [other designations]
  *
- * @Copyright [year] [organization]
+ * Copyright [year] [organization]
  */
 
 #ifndef SRC_UTILS_EXCEPTIONS_HPP_

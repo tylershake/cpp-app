@@ -1,8 +1,5 @@
-/** Copyright [year] [organization]
- *
- * @file example.cpp
- *
- * @brief An example implementation.
+/** @file
+ * An example implementation.
  * A more elaborate description of example implementation. (optional)
  *
  * @author [organization]
@@ -14,6 +11,8 @@
  * @par Notifications
  * [distribution designation]
  * [other designations]
+ *
+ * Copyright [year] [organization]
  */
 
 #include "example.hpp"
