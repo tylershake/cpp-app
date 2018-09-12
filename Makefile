@@ -46,3 +46,4 @@ test:
 docs:
 	mkdir -p $(LOCAL_DOC_PATH)
 	/usr/bin/doxygen Doxyfile
+	$(MAKE) -C $(LOCAL_DOC_PATH)/latex/
