@@ -1,0 +1,157 @@
+% Latex header for doxygen 1.8.11
+\documentclass[twoside]{article}
+
+% Packages required by doxygen
+\usepackage{fixltx2e}
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\PassOptionsToPackage{warn}{textcomp}
+\usepackage{textcomp}
+\usepackage[nointegrals]{wasysym}
+\usepackage[table]{xcolor}
+
+% Custom packages
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{geometry}
+
+\graphicspath{ {./} }
+
+% fixes bug in titlesec that drops section numbering
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  letterpaper,%
+  top=1in,%
+  bottom=1in,%
+  left=1in,%
+  right=1in%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{3ex plus 2ex minus 2ex}
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+% Headers & footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\footnotesize Example C++ Interface Control Document \newline CDRL A003 Deliverable}
+\fancyhead[LO]{\footnotesize Example C++ Interface Control Document \newline CDRL A003 Deliverable}
+\fancyhead[RO]{\includegraphics[height=1cm]{rtn_bbn_logo_horizontal}}
+\fancyhead[RE]{\includegraphics[height=1cm]{rtn_bbn_logo_horizontal}}
+\fancyfoot[LE]{\footnotesize Interface Control Document}
+\fancyfoot[LO]{\footnotesize Interface Control Document}
+\fancyfoot[RE]{\footnotesize \thepage}
+\fancyfoot[RO]{\footnotesize \thepage}
+\setlength{\headheight}{33pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+\usepackage{caption}
+\captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
+
+%===== C O N T E N T S =====
+
+\begin{document}
+
+\pagenumbering{roman}
+\begin{titlepage}
+\begin{flushleft}
+\includegraphics[height=2cm]{rtn_bbn_logo_vertical}
+\headrule
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\textbf{\Large [Internal Program Name]}
+
+\textbf{\Large [External Program Name]}
+
+\bigskip
+\bigskip
+\textbf{\Large Example Interface Control Document}
+
+\bigskip
+\bigskip
+\textbf{\large CDRL A003 Deliverable}
+
+\textbf{\large Contract:} XXXXX-XXX-XX-XX
+
+\textbf{\large Contract Start:} May 4, 2016
+
+\textbf{\large Contract End:} June 16, 2020
+
+\textbf{\large Date:} July 15, 2018
+
+\textbf{\large Version:} X.X
+\end{flushleft}
+\pagenumbering{gobble}
+\end{titlepage}
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+%--- Begin generated contents ---
