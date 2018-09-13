@@ -15,8 +15,30 @@ DOC_OUTPUT_PATH = /usr/local/share/doc/example_cpp_app
 # Local document path
 LOCAL_DOC_PATH = ./build/docs
 
+# Dependencies
+DOXYGEN_VERSION := $(shell doxygen --version 2>/dev/null)
+
 # Rules start here
-all: cpp docs
+all: dependencies cpp docs
+
+dependencies:
+ifdef DOXYGEN_VERSION
+	@echo "Found Doxygen version $(DOXYGEN_VERSION)"
+else
+	$(error Doxygen not found)
+endif
+
+ifneq ("$(wildcard /usr/local/lib/libgtest.a)","") 
+	@echo "Found GTest"
+else
+	$(error GTest not found)
+endif
+
+ifneq ("$(wildcard /usr/lib/x86_64-linux-gnu/libboost_filesystem.a)","")
+	@echo "Found Boost"
+else
+	$(error Boost not found)
+endif
 
 cpp:
 	$(MAKE) -C src/

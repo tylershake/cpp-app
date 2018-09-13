@@ -6,6 +6,11 @@
 cmake_minimum_required (VERSION 3.0)
 project (example_cpp_app VERSION 1.0.0.0 LANGUAGES CXX)
 
+# Check dependencies
+find_package(Boost 1.58 REQUIRED)
+find_package(Doxygen 1.8.0 REQUIRED)
+find_package(GTest REQUIRED)
+
 # Configure CMAKE
 set (CONFIG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/config)
 configure_file ("${CONFIG_DIR}/config.hpp.in" "${PROJECT_BINARY_DIR}/config.hpp")
@@ -30,8 +35,5 @@ add_test (NAME test_example COMMAND test_example)
 add_subdirectory (src)
 
 # add the docs
-find_package(Doxygen)
-if(DOXYGEN_FOUND)
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${PROJECT_BINARY_DIR}/Doxyfile)
 add_custom_target (docs ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
-endif(DOXYGEN_FOUND)
