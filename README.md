@@ -76,6 +76,12 @@ To run the container, execute the following command, replacing [version] with th
 docker run -p 80:80 cpp-app:[version]
 ```
 
+To run the container and open up a shell, execute the following command, replacing [version] with the correct project version:
+
+```
+docker run -p 80:80 -it python-app:[version] bash
+```
+
 The preferred method of running the container is via docker-compose. Include the following in your docker-compose file to connect this container with your other infrastructure.
 
 ```
