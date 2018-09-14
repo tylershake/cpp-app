@@ -64,16 +64,16 @@ sudo ldconfig
 
 The software and documentation can also be built inside a docker container. The currently dockerfile is derived from an nginx container to host the doxygen autodocumentation. To build the container, follow the instructions below.
 
-To build the container from scract, navigate to the project root and execute the following command:
+To build the container from scratch, navigate to the project root and execute the following command, replacing [version] with the correct project version:
 
 ```
-docker build --no-cache=true -t "cpp-app:1.0.0.0" .
+docker build --no-cache=true -t "cpp-app:[version]" .
 ```
 
-To run the container, execute the following command:
+To run the container, execute the following command, replacing [version] with the correct project version:
 
 ```
-docker run -p 80:80 cpp-app:1.0.0.0
+docker run -p 80:80 cpp-app:[version]
 ```
 
 The preferred method of running the container is via docker-compose. Include the following in your docker-compose file to connect this container with your other infrastructure.
