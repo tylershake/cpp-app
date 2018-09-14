@@ -12,7 +12,7 @@
  * [distribution designation]
  * [other designations]
  *
- * Copyright [year] [organization]
+ * @copyright Copyright [year] [organization]
  */
 
 #include <fstream>
