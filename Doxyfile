@@ -1151,7 +1151,8 @@ HTML_EXTRA_FILES       = html/bootstrap.min.css \
                          html/bootstrap-checkbox-radio.js \
                          html/chartist.min.js \
                          html/bootstrap-notify.js \
-                         html/paper-dashboard.js
+                         html/paper-dashboard.js \
+                         html/doxy-boot.js
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
