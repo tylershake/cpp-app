@@ -9,6 +9,10 @@ $( document ).ready(function() {
     $("div.textblock").contents().unwrap();
     $("div.contents").addClass("content").removeClass("contents");
     $("div.headertitle").contents().unwrap();
-    $("div.title").contents().unwrap().wrapAll("<h4 class='title'></div>");
+    $("div.title").contents().unwrap().wrapAll("<h4 class='title'></h4>");
     $("#doc-content").append("<footer class='footer'><div class='container-fluid'><nav class='pull-left'><ul><li><a href='http://localhost'>Homepage</a></li><li><a href='http://localhost'>Blog</a></li><li><a href='http://localhost'>Licenses</a></li></ul></nav><div class='copyright pull-right'>&copy; 2018 <a href='https://www.raytheon.com/ourcompany/bbn'>Raytheon BBN Technologies</a></div></div></footer>");
+    $("#side-nav").addClass("sidebar").removeClass("ui-resizable").removeClass("side-nav-resizable").removeAttr("style").attr("data-background-color", "white").attr("data-active-color","danger");
+    $("#nav-tree").wrapAll("<div class='sidebar-wrapper'></div>");
+    $("div.sidebar-wrapper").prepend("<div class='logo'><a class='simple-text' href='localhost'>HOMEPAGE</a></div>");
+    $("#nav-sync").remove();
 });

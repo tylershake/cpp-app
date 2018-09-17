@@ -218,7 +218,7 @@ hr {
   background-size: cover;
   background-position: center center; }
   .sidebar .sidebar-wrapper {
-    position: relative;
+    position: fixed;
     max-height: none;
     min-height: 100%;
     overflow: hidden;
