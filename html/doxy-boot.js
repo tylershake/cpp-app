@@ -15,4 +15,5 @@ $( document ).ready(function() {
     $("#nav-tree").wrapAll("<div class='sidebar-wrapper'></div>");
     $("div.sidebar-wrapper").prepend("<div class='logo'><a class='simple-text' href='localhost'>HOMEPAGE</a></div>");
     $("#nav-sync").remove();
+    $("table.directory").addClass("table").addClass("table-striped");
 });
