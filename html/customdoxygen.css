@@ -1030,9 +1030,15 @@ div.ingroups a
 	white-space: nowrap;
 }
 
+#nav-tree
+{
+        background-image:none;
+        background-color: transparent;
+}
+
 div.header
 {
-        background-image:url('nav_h.png');
+        background-image:none;
         background-repeat:repeat-x;
 	background-color: transparent;
 	margin:  0px;
